@@ -9,26 +9,64 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    let startButton = RWButton(backgroundColor: .systemGreen, title: "Empezar")
+    let resetButton = RWButton(backgroundColor: .systemRed, title: "Reiniciar")
+    let nextButton = RWButton(backgroundColor: .systemBlue, title: "Siguiente")
+    let exerciseView = UIView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         
-        helloWorld()
+        configureExerciseView()
+        configureStartButton()
+        configureResetButton()
+        configureNextButton()
     }
     
-    func helloWorld() {
-        // JUST A EXAMPLE :)
-        let label = UILabel()
-        label.text = "Hello World"
-        label.font = UIFont.systemFont(ofSize: 30, weight: .black)
-        label.translatesAutoresizingMaskIntoConstraints = false
+    func configureExerciseView() {
+        view.addSubview(exerciseView)
+        exerciseView.translatesAutoresizingMaskIntoConstraints = false
+        exerciseView.backgroundColor = .tertiarySystemGroupedBackground
+        exerciseView.layer.cornerRadius = 10
         
-        view.addSubview(label)
         NSLayoutConstraint.activate([
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            exerciseView.heightAnchor.constraint(equalToConstant: 350),
+            exerciseView.widthAnchor.constraint(equalToConstant: 300),
+            exerciseView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
+            exerciseView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
+    }
+    
+    func configureStartButton() {
+        view.addSubview(startButton)
+        NSLayoutConstraint.activate([
+            startButton.heightAnchor.constraint(equalToConstant: 60),
+            startButton.widthAnchor.constraint(equalToConstant: 260),
+            startButton.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 36),
+            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
+    func configureResetButton() {
+        view.addSubview(resetButton)
+        NSLayoutConstraint.activate([
+            resetButton.heightAnchor.constraint(equalToConstant: 50),
+            resetButton.widthAnchor.constraint(equalToConstant: 120),
+            resetButton.leadingAnchor.constraint(equalTo: startButton.leadingAnchor),
+            resetButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 18)
+        ])
+    }
+    
+    func configureNextButton() {
+        view.addSubview(nextButton)        
+        NSLayoutConstraint.activate([
+            nextButton.heightAnchor.constraint(equalToConstant: 50),
+            nextButton.widthAnchor.constraint(equalToConstant: 120),
+            nextButton.trailingAnchor.constraint(equalTo: startButton.trailingAnchor),
+            nextButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 18)
+        ])
     }
     
 }

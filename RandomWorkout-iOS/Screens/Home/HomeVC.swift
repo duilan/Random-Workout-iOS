@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class HomeVC: UIViewController {
     
@@ -14,7 +15,7 @@ class HomeVC: UIViewController {
     let startButton = RWButton(backgroundColor: .systemGreen, title: "Empezar")
     let resetButton = RWButton(backgroundColor: .systemRed, title: "Reiniciar")
     let nextButton = RWButton(backgroundColor: .systemBlue, title: "Siguiente")
-    let exerciseView = UIView()
+    let exerciseVideoView = RWVideoView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +27,25 @@ class HomeVC: UIViewController {
         configureStartButton()
         configureResetButton()
         configureNextButton()
+        defaultExercise()        
+    }
+    
+    func defaultExercise() {
+        exerciseVideoView.prepareVideoLoop(name: "drink_water")
+        exerciseVideoView.play()
     }
     
     func configureExerciseView() {
-        view.addSubview(exerciseView)
-        exerciseView.translatesAutoresizingMaskIntoConstraints = false
-        exerciseView.backgroundColor = .tertiarySystemGroupedBackground
-        exerciseView.layer.cornerRadius = 10
+        view.addSubview(exerciseVideoView)
+        exerciseVideoView.translatesAutoresizingMaskIntoConstraints = false
+        exerciseVideoView.backgroundColor = .tertiarySystemGroupedBackground
+        exerciseVideoView.layer.cornerRadius = 10
         
         NSLayoutConstraint.activate([
-            exerciseView.heightAnchor.constraint(equalToConstant: 350),
-            exerciseView.widthAnchor.constraint(equalToConstant: 300),
-            exerciseView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
-            exerciseView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            exerciseVideoView.heightAnchor.constraint(equalToConstant: 350),
+            exerciseVideoView.widthAnchor.constraint(equalToConstant: 300),
+            exerciseVideoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+            exerciseVideoView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
@@ -52,8 +59,8 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             countDownLabel.heightAnchor.constraint(equalToConstant: 24),
             countDownLabel.widthAnchor.constraint(equalToConstant: 70),
-            countDownLabel.bottomAnchor.constraint(equalTo: exerciseView.topAnchor, constant: 29),
-            countDownLabel.trailingAnchor.constraint(equalTo: exerciseView.trailingAnchor, constant: -5)
+            countDownLabel.bottomAnchor.constraint(equalTo: exerciseVideoView.topAnchor, constant: 29),
+            countDownLabel.trailingAnchor.constraint(equalTo: exerciseVideoView.trailingAnchor, constant: -5)
         ])
     }
     
@@ -63,9 +70,9 @@ class HomeVC: UIViewController {
         
         NSLayoutConstraint.activate([
             titleExerciseLabel.heightAnchor.constraint(equalToConstant: 40),
-            titleExerciseLabel.leadingAnchor.constraint(equalTo: exerciseView.leadingAnchor),
-            titleExerciseLabel.trailingAnchor.constraint(equalTo: exerciseView.trailingAnchor ),
-            titleExerciseLabel.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 20)
+            titleExerciseLabel.leadingAnchor.constraint(equalTo: exerciseVideoView.leadingAnchor),
+            titleExerciseLabel.trailingAnchor.constraint(equalTo: exerciseVideoView.trailingAnchor ),
+            titleExerciseLabel.topAnchor.constraint(equalTo: exerciseVideoView.bottomAnchor, constant: 20)
         ])
     }
     
@@ -90,7 +97,7 @@ class HomeVC: UIViewController {
     }
     
     func configureNextButton() {
-        view.addSubview(nextButton)        
+        view.addSubview(nextButton)
         NSLayoutConstraint.activate([
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             nextButton.widthAnchor.constraint(equalToConstant: 120),

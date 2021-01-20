@@ -9,6 +9,8 @@ import UIKit
 
 class HomeVC: UIViewController {
     
+    let titleExerciseLabel = RWTitleLabel(fontSize: 32, textAlignment: .center)
+    let countDownLabel = RWTitleLabel(fontSize: 16, textAlignment: .center) // create a custumview->
     let startButton = RWButton(backgroundColor: .systemGreen, title: "Empezar")
     let resetButton = RWButton(backgroundColor: .systemRed, title: "Reiniciar")
     let nextButton = RWButton(backgroundColor: .systemBlue, title: "Siguiente")
@@ -19,6 +21,8 @@ class HomeVC: UIViewController {
         view.backgroundColor = .systemBackground
         
         configureExerciseView()
+        configureCountDownLabel()
+        configureTitleExerciseLabel()
         configureStartButton()
         configureResetButton()
         configureNextButton()
@@ -33,10 +37,36 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             exerciseView.heightAnchor.constraint(equalToConstant: 350),
             exerciseView.widthAnchor.constraint(equalToConstant: 300),
-            exerciseView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -80),
+            exerciseView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
             exerciseView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    func configureCountDownLabel() {
+        view.addSubview(countDownLabel)
+        countDownLabel.text = "00:00"
+        countDownLabel.layer.cornerRadius = 12
+        countDownLabel.clipsToBounds = true
+        countDownLabel.backgroundColor = .systemBackground
         
+        NSLayoutConstraint.activate([
+            countDownLabel.heightAnchor.constraint(equalToConstant: 24),
+            countDownLabel.widthAnchor.constraint(equalToConstant: 70),
+            countDownLabel.bottomAnchor.constraint(equalTo: exerciseView.topAnchor, constant: 29),
+            countDownLabel.trailingAnchor.constraint(equalTo: exerciseView.trailingAnchor, constant: -5)
+        ])
+    }
+    
+    func configureTitleExerciseLabel() {
+        view.addSubview(titleExerciseLabel)
+        titleExerciseLabel.text = "Trote estatico "
+        
+        NSLayoutConstraint.activate([
+            titleExerciseLabel.heightAnchor.constraint(equalToConstant: 40),
+            titleExerciseLabel.leadingAnchor.constraint(equalTo: exerciseView.leadingAnchor),
+            titleExerciseLabel.trailingAnchor.constraint(equalTo: exerciseView.trailingAnchor ),
+            titleExerciseLabel.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 20)
+        ])
     }
     
     func configureStartButton() {
@@ -44,7 +74,7 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             startButton.heightAnchor.constraint(equalToConstant: 60),
             startButton.widthAnchor.constraint(equalToConstant: 260),
-            startButton.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 36),
+            startButton.topAnchor.constraint(equalTo: titleExerciseLabel.bottomAnchor, constant: 20),
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }

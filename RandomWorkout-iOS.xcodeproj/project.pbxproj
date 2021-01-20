@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */; };
 		3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59CCA425B2D8C6007B238A /* RWButton.swift */; };
 		3E88311825B3F2E3002AE44B /* drink_water.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E88311725B3F2E3002AE44B /* drink_water.mp4 */; };
 		3E88311E25B411BA002AE44B /* burpee.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E88311D25B411BA002AE44B /* burpee.mp4 */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWTitleLabel.swift; sourceTree = "<group>"; };
 		3E59CCA425B2D8C6007B238A /* RWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWButton.swift; sourceTree = "<group>"; };
 		3E88311725B3F2E3002AE44B /* drink_water.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = drink_water.mp4; sourceTree = "<group>"; };
 		3E88311D25B411BA002AE44B /* burpee.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = burpee.mp4; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				3E59CCA425B2D8C6007B238A /* RWButton.swift */,
+				3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */,
 				3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */,
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,
 				3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */,

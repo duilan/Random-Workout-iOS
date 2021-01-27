@@ -17,6 +17,8 @@ class HomeVC: UIViewController {
     let nextButton = RWButton(backgroundColor: .systemBlue, title: "Siguiente")
     let exerciseVideoView = RWVideoView()
     
+    let exerciseModel = ExerciseModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -27,11 +29,13 @@ class HomeVC: UIViewController {
         configureStartButton()
         configureResetButton()
         configureNextButton()
-        defaultExercise()        
+        showNewExercise()
     }
     
-    func defaultExercise() {
-        exerciseVideoView.prepareVideoLoop(name: "drink_water")
+    @objc func showNewExercise() {
+        let randomExercise = exerciseModel.getRandomExercise()
+        titleExerciseLabel.text = randomExercise.name
+        exerciseVideoView.prepareVideoLoop(name: randomExercise.videoFileName)
         exerciseVideoView.play()
     }
     
@@ -98,6 +102,8 @@ class HomeVC: UIViewController {
     
     func configureNextButton() {
         view.addSubview(nextButton)
+        nextButton.addTarget(self, action: #selector(showNewExercise), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             nextButton.heightAnchor.constraint(equalToConstant: 50),
             nextButton.widthAnchor.constraint(equalToConstant: 120),

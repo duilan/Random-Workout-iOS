@@ -1,14 +1,14 @@
 //
-//  RWTitleLabel.swift
+//  RWBodyLabel.swift
 //  RandomWorkout-iOS
 //
-//  Created by Adrian Cortes on 18/01/21.
+//  Created by Adrian Cortes on 26/01/21.
 //
 
 import UIKit
 
-class RWTitleLabel: UILabel {
-            
+class RWBodyLabel: UILabel {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -18,18 +18,18 @@ class RWTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(fontSize: CGFloat, textAlignment: NSTextAlignment) {
+    init(textAlignment: NSTextAlignment) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
-        self.font = .systemFont(ofSize: fontSize, weight: .bold)
         configure()
     }
     
     func configure() {
-        textColor = .label
+        textColor = .secondaryLabel
+        font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true
-        minimumScaleFactor = 0.8
-        lineBreakMode = .byTruncatingTail
+        minimumScaleFactor = 0.75
+        lineBreakMode = .byWordWrapping
         translatesAutoresizingMaskIntoConstraints = false
     }
     

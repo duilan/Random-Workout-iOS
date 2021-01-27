@@ -11,6 +11,7 @@ import AVFoundation
 class HomeVC: UIViewController {
     
     let titleExerciseLabel = RWTitleLabel(fontSize: 32, textAlignment: .center)
+    let descriptionExerciseLabel = RWBodyLabel(textAlignment: .center)
     let countDownLabel = RWTitleLabel(fontSize: 16, textAlignment: .center) // create a custumview->
     let startButton = RWButton(backgroundColor: .systemGreen, title: "Empezar")
     let resetButton = RWButton(backgroundColor: .systemRed, title: "Reiniciar")
@@ -26,6 +27,7 @@ class HomeVC: UIViewController {
         configureExerciseView()
         configureCountDownLabel()
         configureTitleExerciseLabel()
+        configureDescriptionExerciseLabel()
         configureStartButton()
         configureResetButton()
         configureNextButton()
@@ -35,6 +37,7 @@ class HomeVC: UIViewController {
     @objc func showNewExercise() {
         let randomExercise = exerciseModel.getRandomExercise()
         titleExerciseLabel.text = randomExercise.name
+        descriptionExerciseLabel.text = randomExercise.descripcion
         exerciseVideoView.prepareVideoLoop(name: randomExercise.videoFileName)
         exerciseVideoView.play()
     }
@@ -76,7 +79,19 @@ class HomeVC: UIViewController {
             titleExerciseLabel.heightAnchor.constraint(equalToConstant: 40),
             titleExerciseLabel.leadingAnchor.constraint(equalTo: exerciseVideoView.leadingAnchor),
             titleExerciseLabel.trailingAnchor.constraint(equalTo: exerciseVideoView.trailingAnchor ),
-            titleExerciseLabel.topAnchor.constraint(equalTo: exerciseVideoView.bottomAnchor, constant: 20)
+            titleExerciseLabel.topAnchor.constraint(equalTo: exerciseVideoView.bottomAnchor, constant: 5)
+        ])
+    }
+    
+    func configureDescriptionExerciseLabel() {
+        view.addSubview(descriptionExerciseLabel)
+        descriptionExerciseLabel.numberOfLines = 2
+        
+        NSLayoutConstraint.activate([
+            descriptionExerciseLabel.heightAnchor.constraint(equalToConstant: 60),
+            descriptionExerciseLabel.topAnchor.constraint(equalTo: titleExerciseLabel.bottomAnchor),
+            descriptionExerciseLabel.leadingAnchor.constraint(equalTo: titleExerciseLabel.leadingAnchor),
+            descriptionExerciseLabel.trailingAnchor.constraint(equalTo: titleExerciseLabel.trailingAnchor)
         ])
     }
     
@@ -85,7 +100,7 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             startButton.heightAnchor.constraint(equalToConstant: 60),
             startButton.widthAnchor.constraint(equalToConstant: 260),
-            startButton.topAnchor.constraint(equalTo: titleExerciseLabel.bottomAnchor, constant: 20),
+            startButton.topAnchor.constraint(equalTo: descriptionExerciseLabel.bottomAnchor, constant: 10),
             startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }

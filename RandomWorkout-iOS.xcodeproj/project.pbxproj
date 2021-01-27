@@ -27,6 +27,7 @@
 		3E889DCD25B11FB400DBFE54 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E889DCB25B11FB400DBFE54 /* LaunchScreen.storyboard */; };
 		3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D125C0ED3F0011D194 /* Exercise.swift */; };
 		3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D425C1231C0011D194 /* ExerciseModel.swift */; };
+		3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */; };
 		3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1A0F025B1441B007884EB /* HomeVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +54,7 @@
 		3E889DCE25B11FB400DBFE54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E93B0D125C0ED3F0011D194 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		3E93B0D425C1231C0011D194 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
+		3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWBodyLabel.swift; sourceTree = "<group>"; };
 		3EE1A0F025B1441B007884EB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 			children = (
 				3E59CCA425B2D8C6007B238A /* RWButton.swift */,
 				3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */,
+				3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */,
 				3E64143C25B7C0A40061E507 /* RWVideoView.swift */,
 			);
 			path = "Custom Views";
@@ -258,6 +261,7 @@
 			files = (
 				3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */,
 				3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */,
+				3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */,
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,
 				3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */,
 				3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */,

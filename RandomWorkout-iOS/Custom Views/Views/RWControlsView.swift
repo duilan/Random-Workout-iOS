@@ -52,6 +52,7 @@ class RWControlsView: UIView {
     }
     
     func reset() {
+        isPlaying = false
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
         startButton.backgroundColor = .systemBlue
         doneButton.disable()

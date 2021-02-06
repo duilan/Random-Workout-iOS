@@ -16,10 +16,17 @@ class RWVideoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure() {
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .tertiarySystemGroupedBackground
+        layer.cornerRadius = 10
     }
     
     func prepareVideoLoop(name resource: String){

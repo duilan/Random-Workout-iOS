@@ -13,10 +13,8 @@ class HomeVC: UIViewController {
     let titleExerciseLabel = RWTitleLabel(fontSize: 32, textAlignment: .center)
     let descriptionExerciseLabel = RWBodyLabel(textAlignment: .center)
     let countDownLabel = RWTitleLabel(fontSize: 16, textAlignment: .center) // create a custumview->
-    let startButton = RWButton(backgroundColor: .systemGreen, title: "Empezar")
-    let resetButton = RWButton(backgroundColor: .systemRed, title: "Reiniciar")
-    let nextButton = RWButton(backgroundColor: .systemBlue, title: "Siguiente")
     let exerciseVideoView = RWVideoView()
+    let controlsView = RWControlsView()
     
     let exerciseModel = ExerciseModel()
     
@@ -28,9 +26,7 @@ class HomeVC: UIViewController {
         configureCountDownLabel()
         configureTitleExerciseLabel()
         configureDescriptionExerciseLabel()
-        configureStartButton()
-        configureResetButton()
-        configureNextButton()
+        configureControlsView()        
         showNewExercise()
     }
     
@@ -42,12 +38,20 @@ class HomeVC: UIViewController {
         exerciseVideoView.play()
     }
     
+    @objc func playStopExercise() {
+        if controlsView.isPlaying {
+            controlsView.pause()
+        } else {
+            controlsView.play()
+        }
+    }
+    
+    @objc func doneExercise() {
+        controlsView.reset()
+    }
+    
     func configureExerciseView() {
         view.addSubview(exerciseVideoView)
-        exerciseVideoView.translatesAutoresizingMaskIntoConstraints = false
-        exerciseVideoView.backgroundColor = .tertiarySystemGroupedBackground
-        exerciseVideoView.layer.cornerRadius = 10
-        
         NSLayoutConstraint.activate([
             exerciseVideoView.heightAnchor.constraint(equalToConstant: 350),
             exerciseVideoView.widthAnchor.constraint(equalToConstant: 300),
@@ -72,9 +76,7 @@ class HomeVC: UIViewController {
     }
     
     func configureTitleExerciseLabel() {
-        view.addSubview(titleExerciseLabel)
-        titleExerciseLabel.text = "Trote estatico "
-        
+        view.addSubview(titleExerciseLabel)        
         NSLayoutConstraint.activate([
             titleExerciseLabel.heightAnchor.constraint(equalToConstant: 40),
             titleExerciseLabel.leadingAnchor.constraint(equalTo: exerciseVideoView.leadingAnchor),
@@ -95,35 +97,18 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureStartButton() {
-        view.addSubview(startButton)
-        NSLayoutConstraint.activate([
-            startButton.heightAnchor.constraint(equalToConstant: 60),
-            startButton.widthAnchor.constraint(equalToConstant: 260),
-            startButton.topAnchor.constraint(equalTo: descriptionExerciseLabel.bottomAnchor, constant: 10),
-            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
-    }
-    
-    func configureResetButton() {
-        view.addSubview(resetButton)
-        NSLayoutConstraint.activate([
-            resetButton.heightAnchor.constraint(equalToConstant: 50),
-            resetButton.widthAnchor.constraint(equalToConstant: 120),
-            resetButton.leadingAnchor.constraint(equalTo: startButton.leadingAnchor),
-            resetButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 18)
-        ])
-    }
-    
-    func configureNextButton() {
-        view.addSubview(nextButton)
-        nextButton.addTarget(self, action: #selector(showNewExercise), for: .touchUpInside)
+    func configureControlsView() {
+        view.addSubview(controlsView)
+        
+        controlsView.nextButton.addTarget(self, action: #selector(showNewExercise), for: .touchUpInside)
+        controlsView.startButton.addTarget(self, action: #selector(playStopExercise), for: .touchUpInside)
+        controlsView.doneButton.addTarget(self, action: #selector(doneExercise), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
-            nextButton.heightAnchor.constraint(equalToConstant: 50),
-            nextButton.widthAnchor.constraint(equalToConstant: 120),
-            nextButton.trailingAnchor.constraint(equalTo: startButton.trailingAnchor),
-            nextButton.topAnchor.constraint(equalTo: startButton.bottomAnchor, constant: 18)
+            controlsView.heightAnchor.constraint(equalToConstant: 60),
+            controlsView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -40),
+            controlsView.leadingAnchor.constraint(equalTo: exerciseVideoView.leadingAnchor),
+            controlsView.trailingAnchor.constraint(equalTo: exerciseVideoView.trailingAnchor)
         ])
     }
     

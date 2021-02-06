@@ -27,8 +27,25 @@ class RWButton: UIButton {
     
     func configure() {
         layer.cornerRadius = 25
-        titleLabel?.font = .systemFont(ofSize: 18, weight: .bold)
+        titleLabel?.font = .preferredFont(forTextStyle: .headline)
         setTitleColor(.white, for: .normal)
-        translatesAutoresizingMaskIntoConstraints = false           
+        tintColor = .white
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    func disable() {        
+        self.isEnabled = false
+        self.layer.opacity = 0.2
+    }
+    
+    func enable() {
+        self.isEnabled = true
+        self.layer.opacity = 1
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.layer.cornerRadius = self.bounds.height / 2
+        
     }
 }

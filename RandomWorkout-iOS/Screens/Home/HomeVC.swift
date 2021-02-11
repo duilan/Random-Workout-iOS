@@ -16,6 +16,9 @@ class HomeVC: UIViewController {
     let exerciseVideoView = RWVideoView()
     let controlsView = RWControlsView()
     
+    var timer: Timer?
+    var totalTime = 0
+    
     let exerciseModel = ExerciseModel()
     
     override func viewDidLoad() {
@@ -23,10 +26,10 @@ class HomeVC: UIViewController {
         view.backgroundColor = .systemBackground
         
         configureExerciseView()
-        configureCountDownLabel()
         configureTitleExerciseLabel()
         configureDescriptionExerciseLabel()
-        configureControlsView()        
+        configureControlsView()
+        configureCountDownLabel()
         showNewExercise()
     }
     
@@ -36,26 +39,54 @@ class HomeVC: UIViewController {
         descriptionExerciseLabel.text = randomExercise.descripcion
         exerciseVideoView.prepareVideoLoop(name: randomExercise.videoFileName)
         exerciseVideoView.play()
+        resetTimer()
     }
     
     @objc func playStopExercise() {
         if controlsView.isPlaying {
+            // se pausa si esta ejecutandose
             controlsView.pause()
+            stopTimer()
         } else {
+            // se pone play/continua
             controlsView.play()
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDownLabel), userInfo: nil, repeats: true)
         }
     }
     
     @objc func doneExercise() {
         controlsView.reset()
+        resetTimer()
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+    }
+    
+    @objc func resetTimer() {
+        timer?.invalidate()
+        totalTime = 0
+        countDownLabel.text = "00:00"
+    }
+    
+    @objc func updateCountDownLabel(){
+        totalTime += 1
+        countDownLabel.text = timeFormatted(totalSeconds: totalTime)
+        
+    }
+    
+    private func timeFormatted(totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
     
     func configureExerciseView() {
         view.addSubview(exerciseVideoView)
         NSLayoutConstraint.activate([
-            exerciseVideoView.heightAnchor.constraint(equalToConstant: 350),
+            exerciseVideoView.heightAnchor.constraint(equalToConstant: 320),
             exerciseVideoView.widthAnchor.constraint(equalToConstant: 300),
-            exerciseVideoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -100),
+            exerciseVideoView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -130),
             exerciseVideoView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
@@ -63,15 +94,13 @@ class HomeVC: UIViewController {
     func configureCountDownLabel() {
         view.addSubview(countDownLabel)
         countDownLabel.text = "00:00"
-        countDownLabel.layer.cornerRadius = 12
-        countDownLabel.clipsToBounds = true
-        countDownLabel.backgroundColor = .systemBackground
-        
+        countDownLabel.font = UIFont.systemFont(ofSize: 35, weight: .thin)
+        countDownLabel.clipsToBounds = true        
         NSLayoutConstraint.activate([
-            countDownLabel.heightAnchor.constraint(equalToConstant: 24),
-            countDownLabel.widthAnchor.constraint(equalToConstant: 70),
-            countDownLabel.bottomAnchor.constraint(equalTo: exerciseVideoView.topAnchor, constant: 29),
-            countDownLabel.trailingAnchor.constraint(equalTo: exerciseVideoView.trailingAnchor, constant: -5)
+            countDownLabel.heightAnchor.constraint(equalToConstant: 35),
+            countDownLabel.widthAnchor.constraint(equalToConstant: 105),
+            countDownLabel.bottomAnchor.constraint(equalTo: controlsView.topAnchor, constant: -20),
+            countDownLabel.centerXAnchor.constraint(equalTo: controlsView.centerXAnchor)
         ])
     }
     

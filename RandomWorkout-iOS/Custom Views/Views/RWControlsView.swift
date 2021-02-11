@@ -33,22 +33,25 @@ class RWControlsView: UIView {
         configureDoneButton()
         configureNextButton()
         configureStartButton()
+        doneButton.disable()
+        nextButton.enable()
+        
     }
     
     func play() {
         isPlaying = true
         startButton.setImage( symbolPause.withConfiguration(symbolConfig) , for: .normal)
         startButton.backgroundColor = .systemPink
-        doneButton.enable()
+        doneButton.disable()
         nextButton.disable()
-        
     }
     
     func pause() {
         isPlaying = false
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
         startButton.backgroundColor = .systemBlue
-        doneButton.disable()
+        doneButton.enable()
+        nextButton.disable()
     }
     
     func reset() {
@@ -61,7 +64,6 @@ class RWControlsView: UIView {
     
     func configureDoneButton() {
         addSubview(doneButton)
-        doneButton.disable()
         NSLayoutConstraint.activate([
             doneButton.heightAnchor.constraint(equalToConstant: 40),
             doneButton.widthAnchor.constraint(equalToConstant: 80),
@@ -75,6 +77,7 @@ class RWControlsView: UIView {
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
         startButton.layer.borderColor = UIColor.systemGray6.cgColor
         startButton.layer.borderWidth = 4
+        startButton.clipsToBounds = true
         NSLayoutConstraint.activate([
             startButton.heightAnchor.constraint(equalToConstant: 70),
             startButton.widthAnchor.constraint(equalToConstant: 70),

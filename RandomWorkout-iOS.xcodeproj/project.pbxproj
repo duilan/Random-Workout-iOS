@@ -28,6 +28,7 @@
 		3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D125C0ED3F0011D194 /* Exercise.swift */; };
 		3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D425C1231C0011D194 /* ExerciseModel.swift */; };
 		3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */; };
+		3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */; };
 		3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1A0F025B1441B007884EB /* HomeVC.swift */; };
 		3EE4FA3C25CCCDDF00C4D107 /* RWControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 		3E93B0D125C0ED3F0011D194 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		3E93B0D425C1231C0011D194 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWBodyLabel.swift; sourceTree = "<group>"; };
+		3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCounterView.swift; sourceTree = "<group>"; };
 		3EE1A0F025B1441B007884EB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWControlsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				3E64143C25B7C0A40061E507 /* RWVideoView.swift */,
+				3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */,
 				3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */,
 			);
 			path = Views;
@@ -292,6 +295,7 @@
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,
 				3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */,
 				3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */,
+				3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */,
 				3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */,
 				3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */,
 				3E889DC325B11FB300DBFE54 /* SceneDelegate.swift in Sources */,

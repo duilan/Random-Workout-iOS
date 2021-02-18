@@ -18,13 +18,14 @@ class RWBodyLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAlignment: NSTextAlignment) {
+    init(textAlignment: NSTextAlignment, numberOfLines: Int) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
+        self.numberOfLines = numberOfLines
         configure()
     }
     
-    func configure() {
+    private func configure() {
         textColor = .secondaryLabel
         font = UIFont.preferredFont(forTextStyle: .body)
         adjustsFontSizeToFitWidth = true

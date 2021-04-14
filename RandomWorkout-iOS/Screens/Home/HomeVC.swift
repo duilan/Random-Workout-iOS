@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
     let descriptionExercise = RWBodyLabel(textAlignment: .center, numberOfLines: 2)
     let controls = RWControlsView()
     let counter = RWCounterView()
+    let infoWorkout = RWWorkoutInfoView()
     
     let exerciseModel = ExerciseModel()
     
@@ -25,6 +26,7 @@ class HomeVC: UIViewController {
         configureExerciseView()
         configureTitleExerciseLabel()
         configureDescriptionExerciseLabel()
+        configureInfoWorkout()
         configureControlsView()
         configureCounterView()
         configureTargetActions()
@@ -39,8 +41,12 @@ class HomeVC: UIViewController {
     
     @objc func showNewExercise() {
         let randomExercise = exerciseModel.getRandomExercise()
+        let randomReps = Int.random(in: randomExercise.workout.minReps...randomExercise.workout.maxReps)
+        let durationSeconds =  randomExercise.workout.durationRep * randomReps
+        
         titleExercise.text = randomExercise.name
         descriptionExercise.text = randomExercise.descripcion
+        infoWorkout.setInfo(repetitions: randomReps, totalTime: durationSeconds)
         exerciseVideo.prepareVideoLoop(name: randomExercise.videoFileName)
         exerciseVideo.play()
         counter.resetTimer()
@@ -89,6 +95,16 @@ class HomeVC: UIViewController {
             descriptionExercise.topAnchor.constraint(equalTo: titleExercise.bottomAnchor),
             descriptionExercise.leadingAnchor.constraint(equalTo: titleExercise.leadingAnchor),
             descriptionExercise.trailingAnchor.constraint(equalTo: titleExercise.trailingAnchor)
+        ])
+    }
+    
+    func configureInfoWorkout() {
+        view.addSubview(infoWorkout)        
+        NSLayoutConstraint.activate([
+            infoWorkout.heightAnchor.constraint(equalToConstant: 40),
+            infoWorkout.leadingAnchor.constraint(equalTo: exerciseVideo.leadingAnchor),
+            infoWorkout.trailingAnchor.constraint(equalTo: exerciseVideo.trailingAnchor),
+            infoWorkout.topAnchor.constraint(equalTo: descriptionExercise.bottomAnchor, constant: 0)
         ])
     }
     

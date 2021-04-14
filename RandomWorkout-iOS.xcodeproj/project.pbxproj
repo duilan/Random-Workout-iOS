@@ -10,6 +10,7 @@
 		3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */; };
 		3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59CCA425B2D8C6007B238A /* RWButton.swift */; };
 		3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64143C25B7C0A40061E507 /* RWVideoView.swift */; };
+		3E70F6E925E5CD5F006D69A1 /* RWWorkoutInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70F6E825E5CD5F006D69A1 /* RWWorkoutInfoView.swift */; };
 		3E87470425BE8AE700530E7B /* scissor_hops.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E8746FA25BE8AE700530E7B /* scissor_hops.mp4 */; };
 		3E87470525BE8AE700530E7B /* jumping_jacks.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E8746FB25BE8AE700530E7B /* jumping_jacks.mp4 */; };
 		3E87470625BE8AE700530E7B /* goblet_squat.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E8746FC25BE8AE700530E7B /* goblet_squat.mp4 */; };
@@ -37,6 +38,7 @@
 		3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWTitleLabel.swift; sourceTree = "<group>"; };
 		3E59CCA425B2D8C6007B238A /* RWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWButton.swift; sourceTree = "<group>"; };
 		3E64143C25B7C0A40061E507 /* RWVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWVideoView.swift; sourceTree = "<group>"; };
+		3E70F6E825E5CD5F006D69A1 /* RWWorkoutInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWWorkoutInfoView.swift; sourceTree = "<group>"; };
 		3E8746FA25BE8AE700530E7B /* scissor_hops.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = scissor_hops.mp4; sourceTree = "<group>"; };
 		3E8746FB25BE8AE700530E7B /* jumping_jacks.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = jumping_jacks.mp4; sourceTree = "<group>"; };
 		3E8746FC25BE8AE700530E7B /* goblet_squat.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = goblet_squat.mp4; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				3E64143C25B7C0A40061E507 /* RWVideoView.swift */,
+				3E70F6E825E5CD5F006D69A1 /* RWWorkoutInfoView.swift */,
 				3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */,
 				3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */,
 			);
@@ -295,6 +298,7 @@
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,
 				3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */,
 				3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */,
+				3E70F6E925E5CD5F006D69A1 /* RWWorkoutInfoView.swift in Sources */,
 				3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */,
 				3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */,
 				3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */,

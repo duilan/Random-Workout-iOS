@@ -55,8 +55,7 @@ class RWCounterView: UIView {
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         timelabel.text = "00:00"
-        timelabel.textColor = .label
-        timelabel.backgroundColor = .tertiarySystemBackground
+        timelabel.textColor = .label        
         timelabel.adjustsFontSizeToFitWidth = true
         timelabel.font = UIFont.systemFont(ofSize: 35, weight: .thin)
         timelabel.textAlignment = .center

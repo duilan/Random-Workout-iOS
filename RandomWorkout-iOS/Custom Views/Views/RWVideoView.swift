@@ -56,7 +56,7 @@ class RWVideoView: UIView {
         queuePlayer?.play()
     }
     
-    func stop() {
+    func pause() {
         queuePlayer?.pause()
     }
     

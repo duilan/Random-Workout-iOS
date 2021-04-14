@@ -49,16 +49,17 @@ class HomeVC: UIViewController {
         infoWorkout.setInfo(repetitions: randomReps, totalTime: durationSeconds)
         exerciseVideo.prepareVideoLoop(name: randomExercise.videoFileName)
         exerciseVideo.play()
-        counter.resetTimer()
     }
     
     @objc func playStopExercise() {
         // se pausa si esta ejecutandose de lo contrario se pone play/continua
         if controls.isPlaying {
             controls.pause()
+            exerciseVideo.pause()
             counter.stopTimer()
         } else {
             controls.play()
+            exerciseVideo.play()
             counter.startTimer()
         }
     }

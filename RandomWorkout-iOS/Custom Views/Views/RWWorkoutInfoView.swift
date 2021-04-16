@@ -72,15 +72,19 @@ class RWWorkoutInfoView: UIView {
     
     func setInfo(repetitions: Int, totalTime: Int ) {
         repetitionValue.text = String(repetitions)
-        if totalTime < 60 {
+        
+        let minutes = totalTime / 60
+        let seconds = totalTime % 60
+        
+        if minutes < 1 {
             totalTimeValue.text = "\(totalTime) sec"
+        } else if minutes >= 1 && seconds == 0 {
+            totalTimeValue.text = "\(minutes) min"
         } else {
-            let minutes = totalTime / 60
-            let seconds =  totalTime % 60
-            totalTimeValue.text = (seconds == 0) ? "\(minutes) min" : "\(minutes) min \(seconds) sec"
+            totalTimeValue.text = "\(minutes) min \(seconds) sec"
         }
     }
-        
+    
     func configureStacks() {
         addSubview(hstack)
         

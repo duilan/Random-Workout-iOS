@@ -17,38 +17,30 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = HomeVC()
+        window?.rootViewController = createTabBarController()
         window?.makeKeyAndVisible()
     }
-
-    func sceneDidDisconnect(_ scene: UIScene) {
-        // Called as the scene is being released by the system.
-        // This occurs shortly after the scene enters the background, or when its session is discarded.
-        // Release any resources associated with this scene that can be re-created the next time the scene connects.
-        // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
+    
+    func createTabBarController() -> UITabBarController {
+        let tabbar = UITabBarController()
+        UITabBar.appearance().tintColor = .systemBlue
+        tabbar.viewControllers = [createHomeNC(), createHistoryNC()]
+        return tabbar
     }
-
-    func sceneDidBecomeActive(_ scene: UIScene) {
-        // Called when the scene has moved from an inactive state to an active state.
-        // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+    
+    func createHomeNC() -> UINavigationController {
+        let homeVC = HomeVC()
+        homeVC.title = "Exercises"
+        homeVC.tabBarItem = UITabBarItem(title: "Exercises", image: UIImage(systemName: "flame.fill"), tag: 0)
+        return UINavigationController(rootViewController: homeVC)
     }
-
-    func sceneWillResignActive(_ scene: UIScene) {
-        // Called when the scene will move from an active state to an inactive state.
-        // This may occur due to temporary interruptions (ex. an incoming phone call).
+    
+    func createHistoryNC() -> UINavigationController {
+        let historyVC = UIViewController()
+        historyVC.title = "History"
+        historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "text.badge.checkmark"), tag: 1)
+        return UINavigationController(rootViewController: historyVC)
     }
-
-    func sceneWillEnterForeground(_ scene: UIScene) {
-        // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
-    }
-
-    func sceneDidEnterBackground(_ scene: UIScene) {
-        // Called as the scene transitions from the foreground to the background.
-        // Use this method to save data, release shared resources, and store enough scene-specific state information
-        // to restore the scene back to its current state.
-    }
-
 
 }
 

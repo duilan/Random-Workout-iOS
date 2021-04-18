@@ -11,7 +11,7 @@ import AVFoundation
 class HomeVC: UIViewController {
     
     let exerciseVideo = RWVideoView()
-    let titleExercise = RWTitleLabel(fontSize: 32, textAlignment: .center)
+    let titleExercise = RWTitleLabel(fontSize: 26, textAlignment: .center)
     let descriptionExercise = RWBodyLabel(textAlignment: .center, numberOfLines: 2)
     let controls = RWControlsView()
     let counter = RWCounterView()
@@ -22,7 +22,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        
+        navigationController?.isNavigationBarHidden = true
         configureExerciseView()
         configureTitleExerciseLabel()
         configureDescriptionExerciseLabel()
@@ -74,15 +74,15 @@ class HomeVC: UIViewController {
         NSLayoutConstraint.activate([
             exerciseVideo.heightAnchor.constraint(equalToConstant: 320),
             exerciseVideo.widthAnchor.constraint(equalToConstant: 300),
-            exerciseVideo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -130),
+            exerciseVideo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -140),
             exerciseVideo.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
     }
     
     func configureTitleExerciseLabel() {
-        view.addSubview(titleExercise)        
+        view.addSubview(titleExercise)
         NSLayoutConstraint.activate([
-            titleExercise.heightAnchor.constraint(equalToConstant: 40),
+            titleExercise.heightAnchor.constraint(equalToConstant: 30),
             titleExercise.leadingAnchor.constraint(equalTo: exerciseVideo.leadingAnchor),
             titleExercise.trailingAnchor.constraint(equalTo: exerciseVideo.trailingAnchor ),
             titleExercise.topAnchor.constraint(equalTo: exerciseVideo.bottomAnchor, constant: 5)
@@ -100,7 +100,7 @@ class HomeVC: UIViewController {
     }
     
     func configureInfoWorkout() {
-        view.addSubview(infoWorkout)        
+        view.addSubview(infoWorkout)
         NSLayoutConstraint.activate([
             infoWorkout.heightAnchor.constraint(equalToConstant: 40),
             infoWorkout.leadingAnchor.constraint(equalTo: exerciseVideo.leadingAnchor),
@@ -113,7 +113,7 @@ class HomeVC: UIViewController {
         view.addSubview(controls)
         NSLayoutConstraint.activate([
             controls.heightAnchor.constraint(equalToConstant: 60),
-            controls.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -40),
+            controls.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -15),
             controls.leadingAnchor.constraint(equalTo: exerciseVideo.leadingAnchor),
             controls.trailingAnchor.constraint(equalTo: exerciseVideo.trailingAnchor)
         ])
@@ -123,9 +123,9 @@ class HomeVC: UIViewController {
         view.addSubview(counter)
         NSLayoutConstraint.activate([
             counter.heightAnchor.constraint(equalToConstant: 35),
-            counter.widthAnchor.constraint(equalToConstant: 320),
+            counter.widthAnchor.constraint(equalToConstant: 300),
             counter.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            counter.bottomAnchor.constraint(equalTo: controls.topAnchor, constant: -20)
+            counter.bottomAnchor.constraint(equalTo: controls.topAnchor, constant: -10)
         ])
     }
     

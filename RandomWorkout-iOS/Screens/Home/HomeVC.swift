@@ -18,6 +18,10 @@ class HomeVC: UIViewController {
     let infoWorkout = RWWorkoutInfoView()
     
     let exerciseModel = ExerciseModel()
+    let coreDataManager = CoreDataManager()
+    
+    var currentExercise: Exercise!
+    var currentWorkout: Workout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +44,15 @@ class HomeVC: UIViewController {
     }
     
     @objc func showNewExercise() {
-        let randomExercise = exerciseModel.getRandomExercise()
-        let randomReps = Int.random(in: randomExercise.workout.minReps...randomExercise.workout.maxReps)
-        let durationSeconds =  randomExercise.workout.durationRep * randomReps
+        currentExercise = exerciseModel.getRandomExercise()
+        let randomReps = Int.random(in: currentExercise.minReps...currentExercise.maxReps)
+        let durationSeconds =  currentExercise.durationPerRep * randomReps
+        currentWorkout = Workout(repetitions: randomReps, time: durationSeconds)
         
-        titleExercise.text = randomExercise.name
-        descriptionExercise.text = randomExercise.descripcion
-        infoWorkout.setInfo(repetitions: randomReps, totalTime: durationSeconds)
-        exerciseVideo.prepareVideoLoop(name: randomExercise.videoFileName)
+        titleExercise.text = currentExercise.name
+        descriptionExercise.text = currentExercise.descripcion
+        infoWorkout.setInfo(with: currentWorkout)
+        exerciseVideo.prepareVideoLoop(name: currentExercise.videoFileName)
         exerciseVideo.play()
     }
     
@@ -65,8 +70,11 @@ class HomeVC: UIViewController {
     }
     
     @objc func doneExercise() {
-        controls.reset()
-        counter.resetTimer()
+        coreDataManager.addToHistory(exercise: currentExercise, workout: currentWorkout, counterTime: counter.totalTime) { [weak self] in
+            self?.controls.reset()
+            self?.counter.resetTimer()
+            self?.showNewExercise()
+        }
     }
     
     func configureExerciseView() {

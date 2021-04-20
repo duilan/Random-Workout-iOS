@@ -70,14 +70,14 @@ class RWWorkoutInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setInfo(repetitions: Int, totalTime: Int ) {
-        repetitionValue.text = String(repetitions)
+    func setInfo(with workout: Workout ) {
+        repetitionValue.text = String(workout.repetitions)
         
-        let minutes = totalTime / 60
-        let seconds = totalTime % 60
+        let minutes = workout.time / 60
+        let seconds = workout.time % 60
         
         if minutes < 1 {
-            totalTimeValue.text = "\(totalTime) sec"
+            totalTimeValue.text = "\(workout.time) sec"
         } else if minutes >= 1 && seconds == 0 {
             totalTimeValue.text = "\(minutes) min"
         } else {

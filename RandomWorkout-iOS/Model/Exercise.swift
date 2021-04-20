@@ -9,11 +9,12 @@ struct Exercise {
     let name: String
     let descripcion: String
     let videoFileName: String
-    let workout: Workout
+    let minReps: Int
+    let maxReps: Int
+    let durationPerRep: Int // seconds
 }
 
 struct Workout {
-    let minReps: Int
-    let maxReps: Int
-    let durationRep: Int // 60 seconds = 1 min 
+    let repetitions: Int
+    let time: Int // seconds
 }

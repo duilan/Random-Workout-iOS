@@ -11,7 +11,7 @@ class RWCounterView: UIView {
     
     private let timelabel = UILabel()
     private var timer: Timer?
-    private var totalTime = 0
+    var totalTime = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)

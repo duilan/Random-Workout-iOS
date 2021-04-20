@@ -27,21 +27,23 @@ class CoreDataManager {
         }
     }
     
-    func seed() {
+    func addToHistory(exercise: Exercise, workout: Workout, counterTime: Int, completion: @escaping() -> Void) {
         let context = container.viewContext
-        let exerciseDone = History(context: context)
-        exerciseDone.name = "Flexiones"
-        exerciseDone.reps = 8
-        exerciseDone.duration = 18
-        exerciseDone.totalTime = 24
-
+        let item = History(context: context)
+        item.name = String(exercise.name)
+        item.repetitions = Int64(workout.repetitions)
+        item.time = Int64(workout.time)
+        item.counterTime = Int64(counterTime)
+        item.date = Date()
+        
         do {
             try context.save()
-            print("Seeds created!")
-        } catch  {
-            print("Error creating seeds, \(error)")
+            print("Exercise saved to history list")
+            completion()
+        } catch {
+            print("Error saving exercise to history list. \(error)")
         }
+        
     }
-    
     
 }

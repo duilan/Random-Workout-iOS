@@ -29,6 +29,7 @@
 		3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D125C0ED3F0011D194 /* Exercise.swift */; };
 		3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D425C1231C0011D194 /* ExerciseModel.swift */; };
 		3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */; };
+		3E98874A262FE65F002B8264 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E988749262FE65F002B8264 /* HistoryVC.swift */; };
 		3E9ABD8F262D050F007E2401 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ABD8D262D050F007E2401 /* DataModel.xcdatamodeld */; };
 		3E9ABD96262D53BE007E2401 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ABD95262D53BE007E2401 /* CoreDataManager.swift */; };
 		3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */; };
@@ -61,6 +62,7 @@
 		3E93B0D125C0ED3F0011D194 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		3E93B0D425C1231C0011D194 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3E93B0D925C1348D0011D194 /* RWBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWBodyLabel.swift; sourceTree = "<group>"; };
+		3E988749262FE65F002B8264 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		3E9ABD8E262D050F007E2401 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3E9ABD95262D53BE007E2401 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCounterView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3E98874C262FE666002B8264 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				3E988749262FE65F002B8264 /* HistoryVC.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		3E9ABD93262D52EB007E2401 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +215,7 @@
 			children = (
 				3EE1A0EE25B14295007884EB /* Home */,
 				3EE1A0ED25B14263007884EB /* Launch */,
+				3E98874C262FE666002B8264 /* History */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -315,6 +326,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */,
+				3E98874A262FE65F002B8264 /* HistoryVC.swift in Sources */,
 				3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */,
 				3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */,
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,

@@ -27,6 +27,18 @@ class CoreDataManager {
         }
     }
     
+    func fetchHistory() -> [History] {
+        let request: NSFetchRequest<History> = History.fetchRequest()
+        let context = container.viewContext
+        do {
+            let result = try context.fetch(request)
+            return result
+        } catch {
+            print("Error fetching history")
+        }
+        return []
+    }
+    
     func addToHistory(exercise: Exercise, workout: Workout, counterTime: Int, completion: @escaping() -> Void) {
         let context = container.viewContext
         let item = History(context: context)

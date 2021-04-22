@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func createHistoryNC() -> UINavigationController {
-        let historyVC = UIViewController()
+        let historyVC = HistoryVC()
         historyVC.title = "History"
         historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "text.badge.checkmark"), tag: 1)
         return UINavigationController(rootViewController: historyVC)

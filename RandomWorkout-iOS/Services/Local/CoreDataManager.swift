@@ -58,4 +58,14 @@ class CoreDataManager {
         
     }
     
+    func delete(_ object: NSManagedObject) {
+        let context = container.viewContext
+        context.delete(object)
+        do {
+            try context.save()
+        } catch  {
+            print("Error borrando")
+        }
+    }
+    
 }

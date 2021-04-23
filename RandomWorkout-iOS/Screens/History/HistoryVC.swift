@@ -43,6 +43,21 @@ class HistoryVC: UIViewController {
     
 }
 
+extension HistoryVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.performBatchUpdates({
+                coreDataManager.delete(historyData[indexPath.row])
+                historyData.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
+            }, completion: nil )
+        }
+    }
+    
+}
+
 extension HistoryVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

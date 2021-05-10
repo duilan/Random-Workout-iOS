@@ -42,6 +42,7 @@ class CoreDataManager {
     func addToHistory(exercise: Exercise, workout: Workout, counterTime: Int, completion: @escaping() -> Void) {
         let context = container.viewContext
         let item = History(context: context)
+        item.id = String(exercise.videoFileName)
         item.name = String(exercise.name)
         item.repetitions = Int64(workout.repetitions)
         item.time = Int64(workout.time)

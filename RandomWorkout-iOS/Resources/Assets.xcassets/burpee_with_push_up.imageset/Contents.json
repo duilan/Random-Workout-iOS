@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "burpee_with_push_up.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

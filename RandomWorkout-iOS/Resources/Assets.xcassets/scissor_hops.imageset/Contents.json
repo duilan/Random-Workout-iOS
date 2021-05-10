@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "scissor_hops.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

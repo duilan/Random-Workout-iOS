@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "jumping_jacks.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

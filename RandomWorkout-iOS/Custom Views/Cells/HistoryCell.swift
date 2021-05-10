@@ -35,7 +35,7 @@ class HistoryCell: UITableViewCell {
     }
     
     func set(with historyItem: History) {
-        imagen.image = UIImage(named: "drink_water")
+        imagen.image = UIImage(named: historyItem.id ?? "drink_water")
         titleLabel.text = historyItem.name
         
         reps.titleLabel.text = "Reps"

@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "reverse_crunch.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -9,16 +9,18 @@ import UIKit
 
 class HistoryVC: UIViewController {
     
-    let historyTable = UITableView()
+    let historyTable = UITableView(frame: .zero, style: .insetGrouped)
     
     let coreDataManager = CoreDataManager()
     var historyData: [History] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGroupedBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         configureHistoryTable()
+        navigationItem.rightBarButtonItem = editButtonItem
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,10 +30,13 @@ class HistoryVC: UIViewController {
     }
     
     func configureHistoryTable() {
-        historyTable.dataSource = self
-        historyTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
         view.addSubview(historyTable)
+        historyTable.dataSource = self
+        historyTable.delegate = self
+        historyTable.rowHeight = 100
+        historyTable.backgroundColor = .systemGroupedBackground
+        historyTable.register(HistoryCell.self , forCellReuseIdentifier: HistoryCell.reuseID)
+        
         historyTable.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             historyTable.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -43,7 +48,12 @@ class HistoryVC: UIViewController {
     
 }
 
-extension HistoryVC: UITableViewDelegate {
+extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        historyTable.setEditing(editing, animated: true)
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -56,17 +66,13 @@ extension HistoryVC: UITableViewDelegate {
         }
     }
     
-}
-
-extension HistoryVC: UITableViewDataSource {
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return historyData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = historyData[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: HistoryCell.reuseID , for: indexPath) as! HistoryCell
+        cell.set(with: historyData[indexPath.row]) 
         return cell
     }
     

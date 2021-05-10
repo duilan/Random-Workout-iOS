@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A8070012647AC5D00D6F1D4 /* RWItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */; };
 		3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */; };
 		3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59CCA425B2D8C6007B238A /* RWButton.swift */; };
 		3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64143C25B7C0A40061E507 /* RWVideoView.swift */; };
@@ -32,12 +33,14 @@
 		3E98874A262FE65F002B8264 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E988749262FE65F002B8264 /* HistoryVC.swift */; };
 		3E9ABD8F262D050F007E2401 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ABD8D262D050F007E2401 /* DataModel.xcdatamodeld */; };
 		3E9ABD96262D53BE007E2401 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9ABD95262D53BE007E2401 /* CoreDataManager.swift */; };
+		3E9FD4312637997C003E507C /* HistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9FD4302637997C003E507C /* HistoryCell.swift */; };
 		3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */; };
 		3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE1A0F025B1441B007884EB /* HomeVC.swift */; };
 		3EE4FA3C25CCCDDF00C4D107 /* RWControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWItemInfoView.swift; sourceTree = "<group>"; };
 		3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWTitleLabel.swift; sourceTree = "<group>"; };
 		3E59CCA425B2D8C6007B238A /* RWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWButton.swift; sourceTree = "<group>"; };
 		3E64143C25B7C0A40061E507 /* RWVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWVideoView.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		3E988749262FE65F002B8264 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		3E9ABD8E262D050F007E2401 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3E9ABD95262D53BE007E2401 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		3E9FD4302637997C003E507C /* HistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCell.swift; sourceTree = "<group>"; };
 		3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWCounterView.swift; sourceTree = "<group>"; };
 		3EE1A0F025B1441B007884EB /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWControlsView.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 				3E70F6E825E5CD5F006D69A1 /* RWWorkoutInfoView.swift */,
 				3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */,
 				3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */,
+				3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 		3E59CCA325B2D6A3007B238A /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E9FD42F2637993E003E507C /* Cells */,
 				3E30DE6425CA9EF000C3334F /* Buttons */,
 				3E30DE6525CA9F0100C3334F /* Labels */,
 				3E30DE6625CA9F2500C3334F /* Views */,
@@ -199,6 +205,14 @@
 				3E9ABD95262D53BE007E2401 /* CoreDataManager.swift */,
 			);
 			path = Local;
+			sourceTree = "<group>";
+		};
+		3E9FD42F2637993E003E507C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E9FD4302637997C003E507C /* HistoryCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		3EE1A0E825B13A37007884EB /* AppDelegate */ = {
@@ -334,11 +348,13 @@
 				3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */,
 				3E70F6E925E5CD5F006D69A1 /* RWWorkoutInfoView.swift in Sources */,
 				3EBB1B2D25D7B50300534A2D /* RWCounterView.swift in Sources */,
+				3A8070012647AC5D00D6F1D4 /* RWItemInfoView.swift in Sources */,
 				3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */,
 				3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */,
 				3E9ABD8F262D050F007E2401 /* DataModel.xcdatamodeld in Sources */,
 				3E889DC325B11FB300DBFE54 /* SceneDelegate.swift in Sources */,
 				3E9ABD96262D53BE007E2401 /* CoreDataManager.swift in Sources */,
+				3E9FD4312637997C003E507C /* HistoryCell.swift in Sources */,
 				3EE4FA3C25CCCDDF00C4D107 /* RWControlsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

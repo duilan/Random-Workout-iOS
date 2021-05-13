@@ -8,76 +8,66 @@
 import UIKit
 
 enum ItemInfoStyle {
+    case small
     case normal
     case big
-    case small
 }
 
 class RWItemInfoView: UIView {
-    
     let valueLabel = UILabel()
     let titleLabel = UILabel()
+    var styleInfo: ItemInfoStyle = .normal
+    var valueTextColor: UIColor = .label
     
-    init(style: ItemInfoStyle ) {
+    init(style: ItemInfoStyle, valueColor: UIColor = .label ) {
         super.init(frame: .zero)
-        configure()
+        styleInfo = style
+        valueTextColor = valueColor
         
-        switch style {
-        case .normal:
-            configureStyleNormal()
-        case .small:
-            configureStyleSmall()
-        case .big:
-            configureStyleBig()
-        }
-        
+        configureUI()
+        configureLayout()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureUI()
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
-    func configureStyleNormal() {
-        titleLabel.font = .systemFont(ofSize: 12, weight: .bold)
-        valueLabel.font = .systemFont(ofSize: 16, weight: .regular)
-    }
-    
-    func configureStyleSmall() {
-        titleLabel.font = .systemFont(ofSize: 12, weight: .bold)
-        valueLabel.font = .systemFont(ofSize: 12, weight: .regular)
-    }
-    
-    func configureStyleBig() {
-        titleLabel.font = .systemFont(ofSize: 12, weight: .bold)
-        valueLabel.font = .systemFont(ofSize: 18, weight: .bold)
-        valueLabel.textColor = .systemOrange
-    }
-    
-    func configure() {
-        addSubview(titleLabel)
-        addSubview(valueLabel)
+    private func configureUI() {
+        valueLabel.textColor = valueTextColor
+        valueLabel.textAlignment = .center
+        valueLabel.minimumScaleFactor = 0.8
         
         titleLabel.textColor = .secondaryLabel
         titleLabel.textAlignment = .center
-        valueLabel.textAlignment = .center
-        valueLabel.textColor = .label
-        valueLabel.adjustsFontSizeToFitWidth = true
-        valueLabel.minimumScaleFactor = 0.8
-        valueLabel.lineBreakMode = .byTruncatingTail
         
+        switch styleInfo {
+        case .small:
+            valueLabel.font = .systemFont(ofSize: 12, weight: .regular)
+            titleLabel.font = .systemFont(ofSize: 10, weight: .semibold)
+        case .normal:
+            valueLabel.font = .systemFont(ofSize: 16, weight: .bold)
+            titleLabel.font = .systemFont(ofSize: 12, weight: .semibold)
+        case .big:
+            valueLabel.font = .systemFont(ofSize: 16, weight: .heavy)
+            titleLabel.font = .systemFont(ofSize: 12, weight: .bold)
+        }
+    }   
+    
+    private func configureLayout() {
+        addSubview(valueLabel)
+        addSubview(titleLabel)
         
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         valueLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            
             valueLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -8),
             valueLabel.leftAnchor.constraint(equalTo: leftAnchor),
             valueLabel.rightAnchor.constraint(equalTo: rightAnchor),

@@ -17,7 +17,7 @@ class HistoryCell: UITableViewCell {
     
     let reps = RWItemInfoView(style: .small)
     let time = RWItemInfoView(style: .small)
-    let yourTime = RWItemInfoView(style: .big)
+    let yourTime = RWItemInfoView(style: .big, valueColor: .systemOrange)
     
     private let dateFormat: DateFormatter = {
         let f = DateFormatter()
@@ -101,7 +101,7 @@ class HistoryCell: UITableViewCell {
         hStack.alignment = .fill
         hStack.distribution = .fillEqually
         hStack.spacing = 0
-                    
+        
         hStack.addArrangedSubview(reps)
         hStack.addArrangedSubview(time)
         hStack.addArrangedSubview(yourTime)

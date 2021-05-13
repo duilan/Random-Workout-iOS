@@ -8,62 +8,14 @@
 import UIKit
 
 class RWWorkoutInfoView: UIView {
-    
-    let repetitionValue = RWTitleLabel(fontSize: 16, textAlignment: .center)
-    let totalTimeValue = RWTitleLabel(fontSize: 16, textAlignment: .center)
-    
-    let repetitionLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .secondaryLabel
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.text = "Repetitions"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let totalTimeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .secondaryLabel
-        label.font = UIFont.preferredFont(forTextStyle: .footnote)
-        label.text = "Total time"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    let hstack: UIStackView = {
-        let stack  = UIStackView()
-        stack.axis  = .horizontal
-        stack.alignment = .center
-        stack.distribution  = .fillEqually
-        stack.spacing = 0
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
-    let vstackRepetition: UIStackView = {
-        let stack  = UIStackView()
-        stack.axis  = .vertical
-        stack.alignment = .center
-        stack.distribution  = .equalCentering
-        stack.spacing = 0
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
-    
-    let vstackTime: UIStackView = {
-        let stack  = UIStackView()
-        stack.axis  = .vertical
-        stack.alignment = .center
-        stack.distribution  = .equalCentering
-        stack.spacing = 0
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        return stack
-    }()
+    private let repetitionInfo = RWItemInfoView(style: .normal)
+    private let totalTimeInfo = RWItemInfoView(style: .normal)
+    private let hstack = UIStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        configureStacks()
+        configureLayout()
     }
     
     required init?(coder: NSCoder) {
@@ -71,30 +23,32 @@ class RWWorkoutInfoView: UIView {
     }
     
     func setInfo(with workout: Workout ) {
-        repetitionValue.text = String(workout.repetitions)
+        repetitionInfo.valueLabel.text = String(workout.repetitions)
+        repetitionInfo.titleLabel.text = "Repetitions"
+        totalTimeInfo.titleLabel.text = "Total time"
         
         let minutes = workout.time / 60
         let seconds = workout.time % 60
         
         if minutes < 1 {
-            totalTimeValue.text = "\(workout.time) sec"
+            totalTimeInfo.valueLabel.text = "\(workout.time) sec"
         } else if minutes >= 1 && seconds == 0 {
-            totalTimeValue.text = "\(minutes) min"
+            totalTimeInfo.valueLabel.text = "\(minutes) min"
         } else {
-            totalTimeValue.text = "\(minutes) min \(seconds) sec"
+            totalTimeInfo.valueLabel.text = "\(minutes) min \(seconds) sec"
         }
     }
     
-    func configureStacks() {
+    private func configureLayout() {
         addSubview(hstack)
+        hstack.addArrangedSubview(repetitionInfo)
+        hstack.addArrangedSubview(totalTimeInfo)
         
-        vstackRepetition.addArrangedSubview(repetitionValue)
-        vstackRepetition.addArrangedSubview(repetitionLabel)
-        vstackTime.addArrangedSubview(totalTimeValue)
-        vstackTime.addArrangedSubview(totalTimeLabel)
-        
-        hstack.addArrangedSubview(vstackRepetition)
-        hstack.addArrangedSubview(vstackTime)
+        hstack.axis  = .horizontal
+        hstack.alignment = .center
+        hstack.distribution  = .fillEqually
+        hstack.spacing = 0
+        hstack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             hstack.leadingAnchor.constraint(equalTo: leadingAnchor),

@@ -58,11 +58,11 @@ class HistoryCell: UITableViewCell {
         var timeFormated: String
         
         if minutes < 1 {
-            timeFormated = "\(time) sec"
+            timeFormated = "\(time)s"
         } else if minutes >= 1 && seconds == 0 {
             timeFormated = "\(minutes) min"
         } else {
-            timeFormated = "\(minutes) min \(seconds) sec"
+            timeFormated = "\(minutes)m \(seconds)s"
         }
         return timeFormated
     }
@@ -72,6 +72,7 @@ class HistoryCell: UITableViewCell {
         contentView.addSubview(imagen)
         contentView.addSubview(titleLabel)
         contentView.addSubview(dateLabel)
+        contentView.addSubview(yourTime)
         contentView.addSubview(hStack)
         
         imagen.translatesAutoresizingMaskIntoConstraints = false
@@ -82,6 +83,19 @@ class HistoryCell: UITableViewCell {
         dateLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
         dateLabel.textColor = .secondaryLabel
         
+        yourTime.backgroundColor = .secondarySystemBackground
+        yourTime.layer.cornerRadius = 8
+        imagen.clipsToBounds = true
+        
+        hStack.addArrangedSubview(reps)
+        hStack.addArrangedSubview(time)
+        
+        hStack.translatesAutoresizingMaskIntoConstraints = false
+        hStack.axis = .horizontal
+        hStack.alignment = .fill
+        hStack.distribution = .fillEqually
+        hStack.spacing = 0
+        
         NSLayoutConstraint.activate([
             imagen.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             imagen.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
@@ -90,28 +104,21 @@ class HistoryCell: UITableViewCell {
             
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             titleLabel.leftAnchor.constraint(equalTo: imagen.rightAnchor, constant: 10),
-            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),
+            titleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
             
             dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             dateLabel.leftAnchor.constraint(equalTo: imagen.rightAnchor, constant: 10),
-            dateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20)
-        ])
-        
-        hStack.axis = .horizontal
-        hStack.alignment = .fill
-        hStack.distribution = .fillEqually
-        hStack.spacing = 0
-        
-        hStack.addArrangedSubview(reps)
-        hStack.addArrangedSubview(time)
-        hStack.addArrangedSubview(yourTime)
-        hStack.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            hStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor,constant: 10),
+            dateLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
+            
+            yourTime.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
+            yourTime.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -15),
+            yourTime.bottomAnchor.constraint(equalTo: dateLabel.topAnchor),
+            yourTime.widthAnchor.constraint(equalToConstant: 80),
+            
+            hStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor),
             hStack.leftAnchor.constraint(equalTo: imagen.rightAnchor, constant: 10),
-            hStack.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20),            
-            hStack.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -10)
+            hStack.rightAnchor.constraint(equalTo: yourTime.leftAnchor, constant: 0),
+            hStack.bottomAnchor.constraint(equalTo: dateLabel.topAnchor)
         ])
         
     }

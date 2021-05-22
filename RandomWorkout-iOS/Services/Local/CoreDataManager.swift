@@ -29,6 +29,9 @@ class CoreDataManager {
     
     func fetchHistory() -> [History] {
         let request: NSFetchRequest<History> = History.fetchRequest()
+        let sortChronological = NSSortDescriptor(key: #keyPath(History.date), ascending: false)
+        request.sortDescriptors = [sortChronological]
+        
         let context = container.viewContext
         do {
             let result = try context.fetch(request)

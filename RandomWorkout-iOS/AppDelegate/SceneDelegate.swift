@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func createTabBarController() -> UITabBarController {
         let tabbar = UITabBarController()
         UITabBar.appearance().tintColor = .systemOrange
-        tabbar.viewControllers = [createHomeNC(), createHistoryNC()]
+        tabbar.viewControllers = [createHomeNC(), createHistoryNC(), createExercisesNC()]
         return tabbar
     }
     
@@ -40,6 +40,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         historyVC.title = "History"
         historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), tag: 1)
         return UINavigationController(rootViewController: historyVC)
+    }
+    
+    func createExercisesNC() -> UINavigationController {
+        let exercisesVC = ExercisesVC()
+        exercisesVC.title = "Exercises"
+        exercisesVC.tabBarItem = UITabBarItem(title: "Exercises", image: UIImage(systemName: "rectangle.grid.2x2"), tag: 1)
+        return UINavigationController(rootViewController: exercisesVC)
     }
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A8070012647AC5D00D6F1D4 /* RWItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */; };
+		3AED5EDA265A24C50097F660 /* ExercisesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AED5ED9265A24C50097F660 /* ExercisesVC.swift */; };
 		3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */; };
 		3E59CCA525B2D8C6007B238A /* RWButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E59CCA425B2D8C6007B238A /* RWButton.swift */; };
 		3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64143C25B7C0A40061E507 /* RWVideoView.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWItemInfoView.swift; sourceTree = "<group>"; };
+		3AED5ED9265A24C50097F660 /* ExercisesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExercisesVC.swift; path = "RandomWorkout-iOS/Screens/Exercises/ExercisesVC.swift"; sourceTree = SOURCE_ROOT; };
 		3E1F88F625B6A9CC00151F58 /* RWTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWTitleLabel.swift; sourceTree = "<group>"; };
 		3E59CCA425B2D8C6007B238A /* RWButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWButton.swift; sourceTree = "<group>"; };
 		3E64143C25B7C0A40061E507 /* RWVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWVideoView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3AED5EDC265A24DD0097F660 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				3AED5ED9265A24C50097F660 /* ExercisesVC.swift */,
+			);
+			path = Exercises;
+			sourceTree = "<group>";
+		};
 		3E30DE6425CA9EF000C3334F /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
@@ -230,6 +240,7 @@
 				3EE1A0EE25B14295007884EB /* Home */,
 				3EE1A0ED25B14263007884EB /* Launch */,
 				3E98874C262FE666002B8264 /* History */,
+				3AED5EDC265A24DD0097F660 /* Exercises */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -351,6 +362,7 @@
 				3A8070012647AC5D00D6F1D4 /* RWItemInfoView.swift in Sources */,
 				3E93B0D525C1231C0011D194 /* ExerciseModel.swift in Sources */,
 				3E93B0D225C0ED3F0011D194 /* Exercise.swift in Sources */,
+				3AED5EDA265A24C50097F660 /* ExercisesVC.swift in Sources */,
 				3E9ABD8F262D050F007E2401 /* DataModel.xcdatamodeld in Sources */,
 				3E889DC325B11FB300DBFE54 /* SceneDelegate.swift in Sources */,
 				3E9ABD96262D53BE007E2401 /* CoreDataManager.swift in Sources */,

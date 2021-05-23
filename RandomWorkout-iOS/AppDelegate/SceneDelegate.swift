@@ -23,22 +23,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func createTabBarController() -> UITabBarController {
         let tabbar = UITabBarController()
-        UITabBar.appearance().tintColor = .systemBlue
+        UITabBar.appearance().tintColor = .systemOrange
         tabbar.viewControllers = [createHomeNC(), createHistoryNC()]
         return tabbar
     }
     
     func createHomeNC() -> UINavigationController {
         let homeVC = HomeVC()
-        homeVC.title = "Exercises"
-        homeVC.tabBarItem = UITabBarItem(title: "Exercises", image: UIImage(systemName: "flame.fill"), tag: 0)
+        homeVC.title = "Workouts"        
+        homeVC.tabBarItem = UITabBarItem(title: "Workouts", image: UIImage(systemName: "flame.fill"), tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }
     
     func createHistoryNC() -> UINavigationController {
         let historyVC = HistoryVC()
         historyVC.title = "History"
-        historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "text.badge.checkmark"), tag: 1)
+        historyVC.tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "clock"), tag: 1)
         return UINavigationController(rootViewController: historyVC)
     }
 

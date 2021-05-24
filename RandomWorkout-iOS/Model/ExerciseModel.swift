@@ -26,4 +26,8 @@ struct ExerciseModel {
         let exercise = exercises[randomNumber]
         return exercise
     }
+    
+    func getAllExercises() -> [Exercise] {
+        return exercises
+    }
 }

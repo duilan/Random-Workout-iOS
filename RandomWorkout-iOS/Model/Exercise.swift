@@ -5,7 +5,7 @@
 //  Created by Adrian Cortes on 26/01/21.
 //
 
-struct Exercise {
+struct Exercise: Hashable {
     let name: String
     let descripcion: String
     let videoFileName: String

@@ -7,7 +7,7 @@
 
 import CoreData
 
-class CoreDataManager {
+final class CoreDataManager {
     
     private let container: NSPersistentContainer!
     private let dataBaseName = "DataModel"

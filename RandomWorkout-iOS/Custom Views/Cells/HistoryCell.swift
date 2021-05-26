@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HistoryCell: UITableViewCell {
+final class HistoryCell: UITableViewCell {
     
     static let reuseID = "HistoryCell"
     private let titleLabel = RWTitleLabel(fontSize: 14, textAlignment: .left)
@@ -52,7 +52,7 @@ class HistoryCell: UITableViewCell {
         
     }
     
-    func formatTimeToString(seconds time: Int) -> String {
+    private func formatTimeToString(seconds time: Int) -> String {
         
         let minutes = time / 60
         let seconds = time % 60

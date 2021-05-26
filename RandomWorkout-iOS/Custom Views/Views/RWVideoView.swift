@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class RWVideoView: UIView {
+final class RWVideoView: UIView {
     
     private var queuePlayer: AVQueuePlayer?
     private var playerLayer: AVPlayerLayer?
@@ -23,7 +23,7 @@ class RWVideoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .tertiarySystemGroupedBackground
         layer.cornerRadius = 10

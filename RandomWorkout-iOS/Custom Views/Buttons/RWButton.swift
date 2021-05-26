@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RWButton: UIButton {
+final class RWButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class RWButton: UIButton {
         configure()
     }
     
-    func configure() {
+    private func configure() {
         layer.cornerRadius = 25
         titleLabel?.font = .preferredFont(forTextStyle: .headline)
         setTitleColor(.white, for: .normal)

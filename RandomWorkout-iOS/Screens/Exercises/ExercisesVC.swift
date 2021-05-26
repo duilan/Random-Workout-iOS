@@ -7,15 +7,15 @@
 
 import UIKit
 
-class ExercisesVC: UIViewController {
+final class ExercisesVC: UIViewController {
     
-    enum Section { case main }
+    private enum Section { case main }
     
-    var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Exercise>!
-    var exercises: [Exercise] = []
+    private var collectionView: UICollectionView!
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Exercise>!
+    private var exercises: [Exercise] = []
     
-    let exerciseModel = ExerciseModel()
+    private let exerciseModel = ExerciseModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -26,14 +26,14 @@ class ExercisesVC: UIViewController {
         getExercises()
     }
     
-    func configureColecctionView() {
+    private func configureColecctionView() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFLowLayout())
         view.addSubview(collectionView)
         collectionView.backgroundColor = .systemBackground
         collectionView.register(ExerciseCell.self, forCellWithReuseIdentifier: ExerciseCell.reuseID)
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, Exercise>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, exercise) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExerciseCell.reuseID, for: indexPath) as! ExerciseCell
             cell.set(with: exercise)
@@ -41,19 +41,19 @@ class ExercisesVC: UIViewController {
         })
     }
     
-    func updateData() {
+    private func updateData() {
         var snapshop = NSDiffableDataSourceSnapshot<Section, Exercise>()
         snapshop.appendSections([.main])
         snapshop.appendItems(exercises)
         DispatchQueue.main.async { self.dataSource.apply(snapshop, animatingDifferences: true) }                
     }
     
-    func getExercises() {
+    private func getExercises() {
         exercises = exerciseModel.getAllExercises()
         updateData()
     }
     
-    func createThreeColumnFLowLayout() ->UICollectionViewFlowLayout {
+    private func createThreeColumnFLowLayout() ->UICollectionViewFlowLayout {
         let width = view.bounds.width
         let padding: CGFloat = 12
         let minimumItemSpacing: CGFloat = 10

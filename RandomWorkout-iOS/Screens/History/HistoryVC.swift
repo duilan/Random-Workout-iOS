@@ -7,12 +7,11 @@
 
 import UIKit
 
-class HistoryVC: UIViewController {
+final class HistoryVC: UIViewController {
     
-    let historyTable = UITableView(frame: .zero, style: .insetGrouped)
-    
-    let coreDataManager = CoreDataManager()
-    var historyData: [History] = []
+    private let historyTable = UITableView(frame: .zero, style: .insetGrouped)
+    private let coreDataManager = CoreDataManager()
+    private var historyData: [History] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +19,6 @@ class HistoryVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         configureHistoryTable()
         navigationItem.rightBarButtonItem = editButtonItem
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,7 +27,7 @@ class HistoryVC: UIViewController {
         historyTable.reloadData()
     }
     
-    func configureHistoryTable() {
+    private func configureHistoryTable() {
         view.addSubview(historyTable)
         historyTable.dataSource = self
         historyTable.delegate = self

@@ -7,14 +7,14 @@
 
 import UIKit
 
-class RWControlsView: UIView {
+final class RWControlsView: UIView {
     
     let startButton = RWButton(backgroundColor: .systemBlue, title: "")
     let doneButton = RWButton(backgroundColor: .systemGreen, title: "Done")
     let nextButton = RWButton(backgroundColor: .systemOrange, title: "Next")
-    let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .large)
-    let symbolPlay = UIImage(systemName: "play.fill")!
-    let symbolPause = UIImage(systemName: "pause.fill")!
+    private let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .large)
+    private let symbolPlay = UIImage(systemName: "play.fill")!
+    private let symbolPause = UIImage(systemName: "pause.fill")!
     
     var isPlaying = false
     
@@ -27,7 +27,7 @@ class RWControlsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
+    private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .secondarySystemBackground
         configureDoneButton()
@@ -62,7 +62,7 @@ class RWControlsView: UIView {
         nextButton.enable()
     }
     
-    func configureDoneButton() {
+    private func configureDoneButton() {
         addSubview(doneButton)
         NSLayoutConstraint.activate([
             doneButton.heightAnchor.constraint(equalToConstant: 40),
@@ -72,7 +72,7 @@ class RWControlsView: UIView {
         ])
     }
     
-    func configureStartButton() {
+    private func configureStartButton() {
         addSubview(startButton)
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
         startButton.layer.borderColor = UIColor.systemGray6.cgColor
@@ -86,7 +86,7 @@ class RWControlsView: UIView {
         ])
     }
     
-    func configureNextButton() {
+    private func configureNextButton() {
         addSubview(nextButton)
         NSLayoutConstraint.activate([
             nextButton.heightAnchor.constraint(equalToConstant: 40),

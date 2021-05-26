@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RWWorkoutInfoView: UIView {
+final class RWWorkoutInfoView: UIView {
     private let repetitionInfo = RWItemInfoView(style: .normal)
     private let totalTimeInfo = RWItemInfoView(style: .normal)
     private let hstack = UIStackView()

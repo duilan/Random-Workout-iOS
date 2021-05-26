@@ -8,20 +8,20 @@
 import UIKit
 import AVFoundation
 
-class HomeVC: UIViewController {
+final class HomeVC: UIViewController {
     
-    let exerciseVideo = RWVideoView()
-    let titleExercise = RWTitleLabel(fontSize: 26, textAlignment: .center)
-    let descriptionExercise = RWBodyLabel(textAlignment: .center, numberOfLines: 2)
-    let controls = RWControlsView()
-    let counter = RWCounterView()
-    let infoWorkout = RWWorkoutInfoView()
+    private let exerciseVideo = RWVideoView()
+    private let titleExercise = RWTitleLabel(fontSize: 26, textAlignment: .center)
+    private let descriptionExercise = RWBodyLabel(textAlignment: .center, numberOfLines: 2)
+    private let controls = RWControlsView()
+    private let counter = RWCounterView()
+    private let infoWorkout = RWWorkoutInfoView()
     
-    let exerciseModel = ExerciseModel()
-    let coreDataManager = CoreDataManager()
+    private let exerciseModel = ExerciseModel()
+    private let coreDataManager = CoreDataManager()
     
-    var currentExercise: Exercise!
-    var currentWorkout: Workout!
+    private var currentExercise: Exercise!
+    private var currentWorkout: Workout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,13 +37,13 @@ class HomeVC: UIViewController {
         showNewExercise()
     }
     
-    func configureTargetActions() {
+    private func configureTargetActions() {
         controls.nextButton.addTarget(self, action: #selector(showNewExercise), for: .touchUpInside)
         controls.startButton.addTarget(self, action: #selector(playStopExercise), for: .touchUpInside)
         controls.doneButton.addTarget(self, action: #selector(doneExercise), for: .touchUpInside)
     }
     
-    @objc func showNewExercise() {
+    @objc private func showNewExercise() {
         currentExercise = exerciseModel.getRandomExercise()
         let randomReps = Int.random(in: currentExercise.minReps...currentExercise.maxReps)
         let durationSeconds =  currentExercise.durationPerRep * randomReps
@@ -56,7 +56,7 @@ class HomeVC: UIViewController {
         exerciseVideo.play()
     }
     
-    @objc func playStopExercise() {
+    @objc private func playStopExercise() {
         // se pausa si esta ejecutandose de lo contrario se pone play/continua
         if controls.isPlaying {
             controls.pause()
@@ -69,7 +69,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    @objc func doneExercise() {
+    @objc private func doneExercise() {
         coreDataManager.addToHistory(exercise: currentExercise, workout: currentWorkout, counterTime: counter.totalTime) { [weak self] in
             self?.controls.reset()
             self?.counter.resetTimer()
@@ -77,7 +77,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    func configureExerciseView() {
+    private func configureExerciseView() {
         view.addSubview(exerciseVideo)
         NSLayoutConstraint.activate([
             exerciseVideo.heightAnchor.constraint(equalToConstant: 320),
@@ -87,7 +87,7 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureTitleExerciseLabel() {
+    private func configureTitleExerciseLabel() {
         view.addSubview(titleExercise)
         NSLayoutConstraint.activate([
             titleExercise.heightAnchor.constraint(equalToConstant: 30),
@@ -97,7 +97,7 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureDescriptionExerciseLabel() {
+    private func configureDescriptionExerciseLabel() {
         view.addSubview(descriptionExercise)
         NSLayoutConstraint.activate([
             descriptionExercise.heightAnchor.constraint(equalToConstant: 60),
@@ -107,7 +107,7 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureInfoWorkout() {
+    private func configureInfoWorkout() {
         view.addSubview(infoWorkout)
         NSLayoutConstraint.activate([
             infoWorkout.heightAnchor.constraint(equalToConstant: 40),
@@ -117,7 +117,7 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureControlsView() {
+    private func configureControlsView() {
         view.addSubview(controls)
         NSLayoutConstraint.activate([
             controls.heightAnchor.constraint(equalToConstant: 60),
@@ -127,7 +127,7 @@ class HomeVC: UIViewController {
         ])
     }
     
-    func configureCounterView() {
+    private func configureCounterView() {
         view.addSubview(counter)
         NSLayoutConstraint.activate([
             counter.heightAnchor.constraint(equalToConstant: 35),

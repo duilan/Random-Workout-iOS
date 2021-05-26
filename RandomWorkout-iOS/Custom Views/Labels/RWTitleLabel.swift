@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RWTitleLabel: UILabel {
+final class RWTitleLabel: UILabel {
             
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +25,7 @@ class RWTitleLabel: UILabel {
         configure()
     }
     
-    func configure() {
+    private func configure() {
         textColor = .label
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.8

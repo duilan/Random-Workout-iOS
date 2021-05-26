@@ -7,17 +7,17 @@
 
 import UIKit
 
-enum ItemInfoStyle {
-    case small
-    case normal
-    case big
-}
-
-class RWItemInfoView: UIView {
+final class RWItemInfoView: UIView {
     let valueLabel = UILabel()
     let titleLabel = UILabel()
-    var styleInfo: ItemInfoStyle = .normal
-    var valueTextColor: UIColor = .label
+    private var styleInfo: ItemInfoStyle = .normal
+    private var valueTextColor: UIColor = .label
+    
+    enum ItemInfoStyle {
+        case small
+        case normal
+        case big
+    }
     
     init(style: ItemInfoStyle, valueColor: UIColor = .label ) {
         super.init(frame: .zero)

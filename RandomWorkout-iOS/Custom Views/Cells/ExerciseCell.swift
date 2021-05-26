@@ -7,10 +7,10 @@
 
 import UIKit
 
-class ExerciseCell: UICollectionViewCell {
+final class ExerciseCell: UICollectionViewCell {
     static let reuseID = "ExerciseCell"
-    let exerciseImage = UIImageView()
-    let titleLabel = RWTitleLabel(fontSize: 12, textAlignment: .center)
+    private let exerciseImage = UIImageView()
+    private let titleLabel = RWTitleLabel(fontSize: 12, textAlignment: .center)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

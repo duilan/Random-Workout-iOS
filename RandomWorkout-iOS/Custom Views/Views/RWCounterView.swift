@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RWCounterView: UIView {
+final class RWCounterView: UIView {
     
     private let timelabel = UILabel()
     private var timer: Timer?

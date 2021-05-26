@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RWBodyLabel: UILabel {
+final class RWBodyLabel: UILabel {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

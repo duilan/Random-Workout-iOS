@@ -33,6 +33,7 @@ final class HistoryVC: UIViewController {
         historyTable.delegate = self
         historyTable.rowHeight = 100
         historyTable.backgroundColor = .systemGroupedBackground
+        historyTable.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
         historyTable.register(HistoryCell.self , forCellReuseIdentifier: HistoryCell.reuseID)
         
         historyTable.translatesAutoresizingMaskIntoConstraints = false

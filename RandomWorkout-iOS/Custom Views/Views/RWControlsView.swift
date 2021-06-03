@@ -9,7 +9,7 @@ import UIKit
 
 final class RWControlsView: UIView {
     
-    let startButton = RWButton(backgroundColor: .systemBlue, title: "")
+    let startButton = RWButton(backgroundColor: .systemIndigo, title: "")
     let doneButton = RWButton(backgroundColor: .systemGreen, title: "Done")
     let nextButton = RWButton(backgroundColor: .systemOrange, title: "Next")
     private let symbolConfig = UIImage.SymbolConfiguration(pointSize: 24, weight: .regular, scale: .large)
@@ -49,7 +49,7 @@ final class RWControlsView: UIView {
     func pause() {
         isPlaying = false
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
-        startButton.backgroundColor = .systemBlue
+        startButton.backgroundColor = .systemIndigo
         doneButton.enable()
         nextButton.disable()
     }
@@ -57,7 +57,7 @@ final class RWControlsView: UIView {
     func reset() {
         isPlaying = false
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
-        startButton.backgroundColor = .systemBlue
+        startButton.backgroundColor = .systemIndigo
         doneButton.disable()
         nextButton.enable()
     }

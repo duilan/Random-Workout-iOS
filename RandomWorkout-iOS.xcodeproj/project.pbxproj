@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2FE56E2668654A00954E3C /* RWEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2FE56D2668654A00954E3C /* RWEmptyView.swift */; };
 		3A3DE484265B5AEB00C7358A /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A3DE483265B5AEB00C7358A /* ExerciseCell.swift */; };
 		3A8070012647AC5D00D6F1D4 /* RWItemInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */; };
 		3AED5EDA265A24C50097F660 /* ExercisesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AED5ED9265A24C50097F660 /* ExercisesVC.swift */; };
@@ -42,6 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A2FE56D2668654A00954E3C /* RWEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWEmptyView.swift; sourceTree = "<group>"; };
 		3A3DE483265B5AEB00C7358A /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RWItemInfoView.swift; sourceTree = "<group>"; };
 		3AED5ED9265A24C50097F660 /* ExercisesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExercisesVC.swift; path = "RandomWorkout-iOS/Screens/Exercises/ExercisesVC.swift"; sourceTree = SOURCE_ROOT; };
@@ -122,6 +124,7 @@
 				3EBB1B2C25D7B50300534A2D /* RWCounterView.swift */,
 				3EE4FA3B25CCCDDF00C4D107 /* RWControlsView.swift */,
 				3A8070002647AC5D00D6F1D4 /* RWItemInfoView.swift */,
+				3A2FE56D2668654A00954E3C /* RWEmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				3E1F88F725B6A9CC00151F58 /* RWTitleLabel.swift in Sources */,
 				3E98874A262FE65F002B8264 /* HistoryVC.swift in Sources */,
 				3EE1A0F125B1441B007884EB /* HomeVC.swift in Sources */,
+				3A2FE56E2668654A00954E3C /* RWEmptyView.swift in Sources */,
 				3E93B0DA25C1348D0011D194 /* RWBodyLabel.swift in Sources */,
 				3E889DC125B11FB300DBFE54 /* AppDelegate.swift in Sources */,
 				3E64143D25B7C0A40061E507 /* RWVideoView.swift in Sources */,

@@ -65,6 +65,13 @@ extension HistoryVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if historyData.isEmpty {
+            DispatchQueue.main.async {
+                self.historyTable.backgroundView = RWEmptyView(message: "Let's go! \n Do some exercise")
+            }
+        } else {
+            historyTable.backgroundView = nil
+        }
         return historyData.count
     }
     

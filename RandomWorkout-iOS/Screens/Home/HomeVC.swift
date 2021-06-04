@@ -27,6 +27,7 @@ final class HomeVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         navigationController?.isNavigationBarHidden = true
+        counter.delegate = self
         configureExerciseView()
         configureTitleExerciseLabel()
         configureDescriptionExerciseLabel()
@@ -47,8 +48,8 @@ final class HomeVC: UIViewController {
         currentExercise = exerciseModel.getRandomExercise()
         let randomReps = Int.random(in: currentExercise.minReps...currentExercise.maxReps)
         let durationSeconds =  currentExercise.durationPerRep * randomReps
-        currentWorkout = Workout(repetitions: randomReps, time: durationSeconds)
-        
+        currentWorkout = Workout(repetitions: randomReps, time: durationSeconds)        
+        counter.setTimer(seconds: durationSeconds)
         titleExercise.text = currentExercise.name
         descriptionExercise.text = currentExercise.descripcion
         infoWorkout.setInfo(with: currentWorkout)
@@ -70,7 +71,7 @@ final class HomeVC: UIViewController {
     }
     
     @objc private func doneExercise() {
-        coreDataManager.addToHistory(exercise: currentExercise, workout: currentWorkout, counterTime: counter.totalTime) { [weak self] in
+        coreDataManager.addToHistory(exercise: currentExercise, workout: currentWorkout, counterTime: counter.timeCounted) { [weak self] in
             self?.controls.reset()
             self?.counter.resetTimer()
             self?.showNewExercise()
@@ -137,4 +138,10 @@ final class HomeVC: UIViewController {
         ])
     }
     
+}
+
+extension HomeVC: CounterViewDelegate {
+    func counterCompleted() {
+        doneExercise()
+    }
 }

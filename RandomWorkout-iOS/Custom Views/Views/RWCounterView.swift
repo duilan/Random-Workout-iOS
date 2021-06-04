@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import AVFoundation
+
+protocol CounterViewDelegate {
+    func counterCompleted()
+}
 
 final class RWCounterView: UIView {
     
     private let timelabel = UILabel()
+    private let audioPlayer = AudioPlayer()
     private var timer: Timer?
-    var totalTime = 0
+    
+    var timeRemaining = 0
+    var timeCounted = 0
+    
+    var delegate: CounterViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,28 +32,40 @@ final class RWCounterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func setTimer(seconds: Int) {
+        self.timeRemaining = seconds
+    }
+    
     func startTimer() {
+        updateTimeLabel()
         stopTimer()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeLabel), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        audioPlayer.playSound(fileName: "play")
     }
     
     func stopTimer() {
         timer?.invalidate()
     }
     
-    func getTimeString() -> String {
-        return timeFormatted(totalSeconds: totalTime)
-    }
-    
     func resetTimer() {
         stopTimer()
-        totalTime = 0
-        timelabel.text = "00:00"
+        timeRemaining = 0
+        timeCounted = 0
+        updateTimeLabel()
     }
     
-    @objc func updateTimeLabel() {
-        totalTime += 1
-        timelabel.text = timeFormatted(totalSeconds: totalTime)
+    private func updateTimeLabel(){
+        self.timelabel.text = self.timeFormatted(totalSeconds: self.timeRemaining)
+    }
+    
+    @objc private func updateTimer() {
+        timeRemaining -= 1
+        timeCounted += 1
+        updateTimeLabel()
+        if timeRemaining == 0 {
+            audioPlayer.playSound(fileName: "complete")
+            delegate?.counterCompleted()
+        }
     }
     
     private func timeFormatted(totalSeconds: Int) -> String {

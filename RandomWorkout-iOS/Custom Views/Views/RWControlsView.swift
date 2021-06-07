@@ -75,7 +75,7 @@ final class RWControlsView: UIView {
     private func configureStartButton() {
         addSubview(startButton)
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
-        startButton.layer.borderColor = UIColor.systemGray6.cgColor
+        startButton.layer.borderColor = UIColor.white.cgColor
         startButton.layer.borderWidth = 4
         startButton.clipsToBounds = true
         NSLayoutConstraint.activate([

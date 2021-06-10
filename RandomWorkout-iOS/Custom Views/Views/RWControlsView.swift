@@ -61,6 +61,11 @@ final class RWControlsView: UIView {
         doneButton.disable()
         nextButton.enable()
     }
+        
+    @objc func hapticFeeback(){
+        let haptic = UISelectionFeedbackGenerator()
+        haptic.selectionChanged()
+    }
     
     private func configureDoneButton() {
         addSubview(doneButton)
@@ -74,6 +79,7 @@ final class RWControlsView: UIView {
     
     private func configureStartButton() {
         addSubview(startButton)
+        startButton.addTarget(self, action: #selector(hapticFeeback), for: .touchUpInside)
         startButton.setImage(symbolPlay.withConfiguration(symbolConfig) , for: .normal)
         startButton.layer.borderColor = UIColor.white.cgColor
         startButton.layer.borderWidth = 4

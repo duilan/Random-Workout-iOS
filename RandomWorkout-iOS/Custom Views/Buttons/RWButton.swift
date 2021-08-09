@@ -31,6 +31,7 @@ final class RWButton: UIButton {
         setTitleColor(.white, for: .normal)
         tintColor = .white
         translatesAutoresizingMaskIntoConstraints = false
+        addTarget(self, action: #selector(pulseAnimation), for: .touchUpInside)
     }
     
     func disable() {        
@@ -41,6 +42,13 @@ final class RWButton: UIButton {
     func enable() {
         self.isEnabled = true
         self.layer.opacity = 1
+    }
+    
+    @objc func pulseAnimation() {
+        self.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        UIView.animate(withDuration: 0.3, delay: 0, options: .allowUserInteraction, animations: {
+            self.transform = CGAffineTransform.identity
+        })
     }
     
     override func layoutSubviews() {
